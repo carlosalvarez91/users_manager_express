@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= user.name
+  a(href="/users/edit/"+user._id)
+    i.material-icons.md-48 mode_edit
+  a.delete-user(href='#',data-id=user._id)
+    i.material-icons.md-48 delete
+  

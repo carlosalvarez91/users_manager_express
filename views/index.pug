@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h3 #{title}
+    if !users
+        p No users yet
+    else
+        for user in users
+            ul.collection
+                li.collection-item
+                    a(href="/users/"+user._id)= user.name
+    .fixed-action-btn
+        a(href="/users/add").btn-floating.btn-large.waves-effect.waves-light.red
+            i.material-icons add

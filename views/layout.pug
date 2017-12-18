@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Users Manager
+    link(rel='stylesheet' href='/bower_components/materialize/dist/css/materialize.css')
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel='stylesheet' type="text/css" href='/css/style.css')
+  body
+    nav
+        .nav-wrapper.blue-grey.darken-4
+            a(href="/").brand-logo Users Manager
+            ul.right
+                if admin
+                    li 
+                        a(href='/admins/logout') Logout
+                else
+                    li
+                        a(href='/admins/register') Register
+                    li
+                        a(href='/admins/login') Login
+    .container
+      != messages('message', locals)
+      if errors
+        each error in errors
+          div(class="alert alert-danger") #{error.msg}
+      block content
+      br
+      hr
+      footer
+        p Carlos Alvarez &copy; 2017
+    script(src='/bower_components/jquery/dist/jquery.js')  
+    script(src='/bower_components/materialize/dist/js/materialize.js')
+    script(src='/js/main.js')  
